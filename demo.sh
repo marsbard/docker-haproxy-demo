@@ -26,13 +26,17 @@ banner registrator
 docker run -d -v /var/run/docker.sock:/tmp/docker.sock -h registrator --name registrator gliderlabs/registrator consul://$MYIP:8500
 
 
+echo 'docker run -d -e SERVICE_NAME=hello/v1 -e SERVICE_TAGS=rest -h hello${id} --name hello${id} -p :80 sirile/scala-boot-test' > /usr/bin/newnode
+chmod +x /usr/bin/newnode
+
+
 banner 3 instances of demo app
 echo "==: instance 1 :=="
-docker run -d -e SERVICE_NAME=hello/v1 -e SERVICE_TAGS=rest -h hello1 --name hello1 -p :80 sirile/scala-boot-test
+newnode 1
 echo "==: instance 2 :=="
-docker run -d -e SERVICE_NAME=hello/v1 -e SERVICE_TAGS=rest -h hello2 --name hello2 -p :80 sirile/scala-boot-test
+newnode 2
 echo "==: instance 3 :=="
-docker run -d -e SERVICE_NAME=hello/v1 -e SERVICE_TAGS=rest -h hello3 --name hello3 -p :80 sirile/scala-boot-test
+newnode 3
 
 banner log dump from registrator
 docker logs registrator
@@ -43,3 +47,8 @@ echo Visit http://$MYIP:1936 for haproxy stats, and when any hosts in `srvs_app7
 echo 
 echo then visit http://$MYIP/hello/v1 for exposed service
 echo
+echo You can also add new nodes with 'newnode <id>' where '<id>' is any identifier, it will
+echo be appended to both the hostname and docker name so if id='foo' then the hostname will
+echo be 'hellofoo' and so will the docker name. You can then try 'docker kill hellofoo' to
+echo get rid of it again, or equally 'docker kill hello2' to get rid of the 2nd instance 
+echo we already started.
