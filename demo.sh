@@ -39,7 +39,7 @@ docker logs registrator
 
 banner "done"
 echo
-echo Visit http://$MYIP:1936 for haproxy stats
+echo Visit http://$MYIP:1936 for haproxy stats, and when any hosts in `srvs_app7` are green
 echo 
-echo or http://$MYIP/hello/v1 for exposed service
+echo then visit http://$MYIP/hello/v1 for exposed service
 echo
