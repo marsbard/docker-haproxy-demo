@@ -9,6 +9,12 @@ function banner {
 	echo --------------
 }
 
+if [ -z "`which docker`"  ]
+then
+	banner install docker
+	wget -qO- https://get.docker.com/ | sh
+fi
+
 banner consul
 docker run --name consul -d -h dev -p 8300:8300 -p 8301:8301 -p 8301:8301/udp -p 8302:8302 -p 8302:8302/udp -p 8400:8400 -p 8500:8500 -p $DNS:53:53 -p $DNS:53:53/udp progrium/consul -server -advertise $MYIP --bootstrap-expect 1
 
