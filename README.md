@@ -16,5 +16,5 @@ Once you have run `demo.sh` you will have running the following containers:
   * consul
   * registrator
   * haproxy
-  * sample app instances {1..3}
+  * sample service instances hello{1..3}
   
