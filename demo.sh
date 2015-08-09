@@ -26,7 +26,7 @@ banner registrator
 docker run -d -v /var/run/docker.sock:/tmp/docker.sock -h registrator --name registrator gliderlabs/registrator consul://$MYIP:8500
 
 
-echo 'docker run -d -e SERVICE_NAME=hello/v1 -e SERVICE_TAGS=rest -h hello${id} --name hello${id} -p :80 sirile/scala-boot-test' > /usr/bin/newnode
+echo 'docker run -d -e SERVICE_NAME=hello/v1 -e SERVICE_TAGS=rest -h hello$1 --name hello$1 -p :80 sirile/scala-boot-test' > /usr/bin/newnode
 chmod +x /usr/bin/newnode
 
 
