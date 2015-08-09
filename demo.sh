@@ -44,8 +44,8 @@ docker logs registrator
 banner "done"
 echo
 echo Visit http://$MYIP:1936 for haproxy stats, and when any hosts in \'srvs_app7\' are green,
-echo then visit http://$MYIP/hello/v1 for exposed service (takes about 60 secs to come up on 
-echo digital ocean)
+echo "then visit http://$MYIP/hello/v1 for exposed service (takes about 60 secs to come up on "
+echo "digital ocean)"
 echo
 echo You can also add new nodes with \'newnode <id>\' where \'<id>\' is any identifier, it will
 echo be appended to both the hostname and docker name so if id=\'foo\' then the hostname will
