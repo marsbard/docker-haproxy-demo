@@ -18,3 +18,25 @@ Once you have run `demo.sh` you will have running the following containers:
   * haproxy
   * sample service instances hello{1..3}
   
+
+At the end of setup, you will see something like this (the IP is long gone, obviously)
+```
+-------------------------------
+done
+--------------
+
+Visit http://188.166.85.252:1936 for haproxy stats, and when any hosts in srvs_app7 are green
+
+then visit http://188.166.85.252/hello/v1 for exposed service
+
+You can also add new nodes with 'newnode <id>' where '<id>' is any identifier, it will
+be appended to both the hostname and docker name so if id='foo' then the hostname will
+be 'hellofoo' and so will the docker name. You can then try 'docker kill hellofoo' to
+get rid of it again, or equally 'docker kill hello2' to get rid of the 2nd instance
+we already started.
+```
+
+So using that info you can review the haproxy stats and see when the servers come alive and watch how the exposed endpoint reacts. For its part it outputs the hostname as part of its content:
+```
+{"hostname":"hello3","time":1439143457013,"language":"Scala"}
+```
