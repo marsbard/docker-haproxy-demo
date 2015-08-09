@@ -47,8 +47,8 @@ echo Visit http://$MYIP:1936 for haproxy stats, and when any hosts in \'srvs_app
 echo "then visit http://$MYIP/hello/v1 for exposed service (takes about 60 secs to come up on "
 echo "digital ocean)"
 echo
-echo You can also add new nodes with \'newnode <id>\' where \'<id>\' is any identifier, it will
+echo You can also add new nodes with \'newnode \<id\>\' where \'\<id\>\' is any identifier, it will
 echo be appended to both the hostname and docker name so if id=\'foo\' then the hostname will
 echo be \'hellofoo\' and so will the docker name. You can then try \'docker kill hellofoo\' to
 echo get rid of it again, or equally \'docker kill hello2\' to get rid of the 2nd instance 
-echo we already started.
+echo we already started.`
