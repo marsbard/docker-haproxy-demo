@@ -7,9 +7,9 @@ It uses registrator to watch the docker environment for new containers.
 
 When registrator finds a new container it contacts the consul container to add the containers capabilities.
 
-Consul in turn knows which containers are needed to add to the haproxy and using console-template will create a new haproxy configuration and upload it.
+Consul in turn knows which containers are needed to add to the haproxy and using consul-template will create a new haproxy configuration and upload it.
 
-Haproxy provides a user facing endpoint that proxies all the containers in the backend.
+Haproxy provides a user facing endpoint that proxies all the containers in the backend. In production this would be a farm of two haproxy servers, for this demo the service is unavailable while the sole haproxy is cycled. 
 
 Once you have run `demo.sh` you will have running the following containers:
 
